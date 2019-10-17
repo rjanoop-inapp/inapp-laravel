@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['middleware' => ['api']], function () {
-
     /******************* Authentication Module Starts *******************/
-    Route::get('/auth/login', 'Auth\LoginController@login');
+Route::group(['middleware' => ['api']], function () {
+    Route::get('/login', 'Auth\LoginController@login');
+    Route::get('/testfn', 'Auth\LoginController@testfn');
 });

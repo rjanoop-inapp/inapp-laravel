@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Services\Auth\LoginService;
 
 class LoginController extends Controller
 {
@@ -34,6 +35,16 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->loginService = new LoginService;
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(){
+        echo $this->loginService->login();
+        exit();
+    }
+
+    public function testfn(){
+        echo "hello world";exit;
     }
 }
